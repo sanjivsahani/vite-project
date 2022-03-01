@@ -14,12 +14,23 @@ const Cart = () => {
   }
   const order = () => {
 
-    Swal.fire(
-      'Ordered sucessfull💙💚🧡!',
-      'You clicked the button!',
-      'success'
-    )
-    thali.length = ""
+    if(thali.length<2){
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...😥😫',
+        text: 'Order at least 2 item.',
+      
+      })
+    }else{
+
+      Swal.fire(
+        'Ordered sucessfull💙💚🧡!',
+        'You clicked the button!',
+        'success'
+      )
+      thali.length=0
+    }
+    
   }
   var sum = 0
   for (const item of thali) {
